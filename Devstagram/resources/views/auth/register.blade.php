@@ -9,7 +9,7 @@
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
             <!-- Formulario de registro -->
-            <form action="{{"register"}}" method="POST" novalidate>
+            <form action={{'register'}} method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for ="name" class="mb-2 black uppercase text-gray-500 font-bold">
@@ -17,6 +17,7 @@
                     </label>
                     <input
                         id="name"
+                        name="name"
                         type="text"
                         placeholder="Ingresa tu nombre"
                         class="border p-3 w-full rounded tg
@@ -33,20 +34,21 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="usuario" class="mb-2 black uppercase text-gray-500 font-bold">
+                    <label for="username" class="mb-2 black uppercase text-gray-500 font-bold">
                         Usuario
                     </label>
                     <input
-                        id="usuario"
+                        id="username"
+                        name="username"
                         type="text"
                         placeholder="Ingresa tu usuario"
                         class="border p-3 w-full rounded tg
-                        @error('usuario')
+                        @error('username')
                             border-red-500
                         @enderror"
                         value="{{old('usuario')}}"
                     />
-                    @error('usuario')
+                    @error('username')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{$message}}
                         </p>
@@ -58,6 +60,7 @@
                     </label>
                     <input
                         id="email"
+                        name="email"
                         type="text"
                         placeholder="Ingresa tu email"
                         class="border p-3 w-full rounded tg
@@ -66,7 +69,7 @@
                         @enderror"
                         value="{{old('email')}}"
                     />
-                    @error('Email')
+                    @error('email')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{$message}}
                         </p>
@@ -78,6 +81,7 @@
                     </label>
                     <input
                         id="password"
+                        name="password"
                         type="password"
                         placeholder="Ingresa tu password"
                         class="border p-3 w-full rounded tg
@@ -94,17 +98,19 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="repassword" class="mb-2 black uppercase text-gray-500 font-bold">
+                    <label for="password_confirmation" class="mb-2 black uppercase text-gray-500 font-bold">
                         Repite tu Password
                     </label>
                     <input
-                        id="repassword"
+                        id="password_confirmation"
+                        name="password_confirmation"
                         type="password"
                         placeholder="Reingresa tu password"
                         class="border p-3 w-full rounded tg
                         @error('repassword')
                             border-red-500
                         @enderror"
+                        value="{{old('repassword')}}"
                     />
                     <!-- Mostrar directiva de registro de nombre obligatorio -->
                     @error('repassword')

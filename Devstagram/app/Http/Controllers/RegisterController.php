@@ -28,28 +28,29 @@ class RegisterController extends Controller
             //Pasamos las reglas de validacion de cada uno de los campos
             //Validamos "username" y "email" com0o unico relacionados con la tabla "users" generada automaticamente con la instalacion de laravel
             'name' => 'required|min:4|max:20',
-
-            'usuario' => 'required|Unique:Users|min:3|max:20',
-            'email' => 'required|Unique:Users|email|max:60',
-            'password' => 'required|confirmed|min:6',
-            'repassword' => '',
+            'username' => 'required|unique:users|min:3|max:30',
+            'email' => 'required|unique:users|email|max:60',
+            'password' => 'required|confirmed|min:2',
+            'password_confirmation' => '',
         ]);
+
         //Insertar datos a la tabla de usuarios
+        //este Utiliza los name
         User::create([
             'name' => $request->name,
             'username' =>$request->username,
-            'email' => $request->username,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
-            'repassword' => $request->password,
+            'password_confirmation' => $request->password,
         ]);
         //Autenticar un usuario con el metodo "attemp"
         //Opcion 1
-        /*auth()->attempt([
+        auth()->attempt([
             'email'=>$request->email,
-            'password' =>$request->password,
-        ]);*/
+            'password' =>$request->password
+        ]);
         //Opcion 2
-        auth()->attempt($request->only('email','password'));
+        //auth()->attempt($request->only('email','password'));
         //Redireccionando
         return redirect()->route('post.index');
     }

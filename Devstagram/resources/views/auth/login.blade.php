@@ -11,14 +11,20 @@
     </div>
     <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
         <!-- Formulario de registro -->
-        <form action="{{"register"}}" method="POST" novalidate>
+        <form action="{{route('login')}}" method="POST"novalidate>
             @csrf
+            @if(session('mensaje'))
+                <p class="bg-red-500 text-white my-2 rounded-lg p-2 text-center">
+                    {{session('mensaje')}}
+                </p>
+            @endif
             <div class="mb-5">
                 <label for="email" class="mb-2 black uppercase text-gray-500 font-bold">
                     Email
                 </label>
                 <input
                     id="email"
+                    name="email"
                     type="text"
                     placeholder="Ingresa tu email"
                     class="border p-3 w-full rounded tg
@@ -27,7 +33,7 @@
                     @enderror"
                     value="{{old('email')}}"
                 />
-                @error('Email')
+                @error('email')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                         {{$message}}
                     </p>
@@ -39,6 +45,7 @@
                 </label>
                 <input
                     id="password"
+                    name="password"
                     type="password"
                     placeholder="Ingresa tu password"
                     class="border p-3 w-full rounded tg
@@ -54,9 +61,16 @@
                     </p>
                 @enderror
             </div>
+            <!-- Check de mantener sesion iniciada-->
+            <div class="mb-5">
+                <input type="checkbox" name="remember">
+                <label class="text-gray-500 text-sm">
+                    Mantener sesion abierta
+                </label>
+            </div>
             <input
                 type="submit"
-                value="crear cuenta"
+                value="Iniciar sesion"
                 class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
             />
         </form>

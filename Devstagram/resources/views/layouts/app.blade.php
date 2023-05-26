@@ -13,11 +13,33 @@
                 <h1 class="text 3xl font-black">
                     Devstagram
                 </h1>
-                <!-- navegacion del sitio -->
-                <nav class="flex gap-2 items-center">
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="#">Login</a>
-                    <a class="font-bold uppercase text-gray-600 text-sm" href="{{route ("register")}}">Crear cuenta</a>
-                </nav>
+                @auth
+                    <!-- navegacion de usuario autenticado -->
+                    <nav class="flex gap-2 items-center">
+                        <a class="font-bold text-gray-600 text-sm" href="#">
+                            Hola:
+                            <span class="font-normal">
+                                {{auth()->user()->username}}
+                            </span>
+                        </a>
+                        <!-- Agregando seguridad al logout -->
+                        <form methos="POST" action="{{route('logout')}}">
+                            @csrf
+                            <button type="submit" class="font-bold uppercase text-gray-600 text-sm">
+                                Cerrar Sesion
+                            </button>
+                        </form>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('logout')}}">cerrar sesion</a>
+                    </nav>
+                @endauth
+
+                <!-- Menu cuando no estes autenticado -->
+                @guest
+                    <nav class="felx gap-2 items-center">
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear cuenta</a>
+                    </nav>
+                @endguest
             </div>
         </header>
         <!-- Contenido de las vistas -->

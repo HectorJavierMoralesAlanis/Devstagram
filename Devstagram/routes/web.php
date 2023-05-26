@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -34,3 +37,9 @@ Route::get('/muro',[PostController::class,'index'])->name('post.index');
 
 //Ruta para el login
 Route::get('/login',[LoginController::class,'index'])->name('login');
+
+//Ruta para la validacion del login
+Route::post('/login',[LoginController::class, 'store']);
+
+//Ruta para logout
+Route::get('/logout',[LogoutController::class,'store'])->name('logout');
