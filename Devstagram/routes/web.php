@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterService;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 
@@ -43,3 +44,7 @@ Route::post('/login',[LoginController::class, 'store']);
 
 //Ruta para logout
 Route::get('/logout',[LogoutController::class,'store'])->name('logout');
+
+//Ruta para registro de servicios
+Route::get('/services',[RegisterService::class,'index'])->name("registerS");
+Route::post('/services',[RegisterService::class,'store'])->name("serviceR");

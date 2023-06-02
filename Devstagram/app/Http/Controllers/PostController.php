@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -17,7 +19,8 @@ class PostController extends Controller
     {
         //Aplicamos un helper para revisar que el usuario esta autenciado
         //dd(auth()->user());
-        return view('dashboard');
+        $servicios = DB::table('services')->where('user_id',auth()->user()->id)->get();
+        return view('dashboard')->with('servicios',$servicios);
     }
 
 }
