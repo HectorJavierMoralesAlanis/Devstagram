@@ -6,6 +6,8 @@
         <title>@yield('titulo')</title>
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+        <!-- Insertar estilo de dropzone-->
+        <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
     </head>
     <body class="bg-[#1c1917]">
         <!-- Encabezado de la pagina-->
