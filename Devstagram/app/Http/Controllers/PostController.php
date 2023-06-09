@@ -23,4 +23,9 @@ class PostController extends Controller
         return view('dashboard')->with('servicios',$servicios);
     }
 
+    //Crear metodo create para mostrar el formulario de carga de post de publicacion
+    public function create()
+    {
+        return view('posts.create');
+    }
 }

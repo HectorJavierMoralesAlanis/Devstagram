@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('titulo')
-    Registarte a Devstagram
+    Registarte
 @endsection
 @section('contenido')
     <div class="md:flex md:justify-center md:gap=10 md:items-center">

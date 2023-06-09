@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterService;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PostImagenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,9 @@ Route::get('/logout',[LogoutController::class,'store'])->name('logout');
 //Ruta para registro de servicios
 Route::get('/services',[RegisterService::class,'index'])->name("registerS");
 Route::post('/services',[RegisterService::class,'store'])->name("serviceR");
+
+//Rutaa para el formulario de post de publicacion
+Route::get('/post/create',[PostController::class,'create'])->name('post.create');
+
+//Ruta para hacer el post de la imagen
+Route::get('/postIm',[PostImagenController::class,'index'])->name("postIm");

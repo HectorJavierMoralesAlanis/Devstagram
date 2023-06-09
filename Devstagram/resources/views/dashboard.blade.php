@@ -4,20 +4,33 @@
 @endsection
 
 @section('contenido')
-<!--
+
     <div class="flex justify-center">
         <div class="w-full md:w-8/12 lg:w/12 md:flex">
             <div class="md:w-8/12 lg:w-6/12 px-5">
-                <img src="" alt="Imagen de usuario">
+                <img src="{{asset('Imagenes/Materiales DevStagram-UPV/Materiales DevStagram-UPV/usuario.svg')}}" alt="Imagen de usuario">
             </div>
                 <div class="md:w-8/12 lg:w-6/12 px-5">
                     <p class="text-gray-700 text-2xl">
-                        
+                        {{auth()->user()->username}}
+                    </p>
+                    <!-- Añadir mas contenido-->
+                    <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
+                        0
+                        <spam class="font-normal">Seguidores</spam>
+                    </p>
+                    <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
+                        0
+                        <spam class="font-normal">Siguiendo</spam>
+                    </p>
+                    <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
+                        0
+                        <spam class="font-normal">Post</spam>
                     </p>
                 </div>
         </div>
-    </div>-->
-    
+    </div>
+    <!--
     <a class="font-bold text-green-600 text-sm right" href="{{route('registerS')}}">Ingresar nuevo servicio</a>
     <div class="container flex justify-center">
         <table class="border-separate  border-spacing-2 border border-white bg-[#44403c] text-white">
@@ -34,18 +47,18 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($servicios as $servicio)
                 <tr>
-                    @foreach($servicios as $servicio)
-                        <td>{{ $servicio->codigo }}</td>
-                        <td>{{ $servicio->nombre }}</td>
-                        <td>{{ $servicio->descripcion_Corta }}</td>
-                        <td>{{ $servicio->descripcion_Larga }}</td>
-                        <td>{{ $servicio->precio_Servicio }}</td>
-                        <td>{{ $servicio->fecha_Ingreso }}</td>
-                        <td>{{ $servicio->caracteristica_Servicio }}</td>
-                    @endforeach
+                    <td>{{ $servicio->codigo }}</td>
+                    <td>{{ $servicio->nombre }}</td>
+                    <td>{{ $servicio->descripcion_Corta }}</td>
+                    <td>{{ $servicio->descripcion_Larga }}</td>
+                    <td>{{ $servicio->precio_Servicio }}</td>
+                    <td>{{ $servicio->fecha_Ingreso }}</td>
+                    <td>{{ $servicio->caracteristica_Servicio }}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
-    </div>
+    </div>-->
 @endsection
