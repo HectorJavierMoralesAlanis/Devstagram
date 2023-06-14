@@ -9,3 +9,20 @@ const dropzone=new Dropzone("#dropzone",{
     maxFiles:1,
     uploadMultiples:false,
 })
+//Eventos de Dropzone
+//1. Envio correcto de la imagen
+/*dropzone.on('sending',function(file,xhr,formdata){
+    console.log(file);
+});*/
+
+//1.Envio correcto de la imagen
+dropzone.on('success',function(file,response){
+    console.log(response);
+});
+
+//2. Evento de envio con error
+dropzone.on('error',function(file,message){
+    console.log(message);
+});
+
+//3.
