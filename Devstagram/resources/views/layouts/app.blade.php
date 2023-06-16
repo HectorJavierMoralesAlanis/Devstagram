@@ -3,12 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        @stack('styles')
         <title>@yield('titulo')</title>
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
         <!-- Insertar estilo de dropzone-->
-        @stack('style')
+        @stack('styles')
     </head>
     <body class="bg-[#1c1917]">
         <!-- Encabezado de la pagina-->

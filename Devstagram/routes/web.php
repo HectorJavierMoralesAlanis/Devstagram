@@ -59,4 +59,4 @@ Route::get('/posts/create',[PostController::class,'create'])->name('posts.create
 Route::post('/imagenes',[ImagenController::class,'store'])->name('imagenes.store');
 
 //Ruta para hacer el post de la imagen
-Route::post('/posts',[PostController::class,'store'])->name("post.store"); 
+Route::post('/posts',[PostController::class,'store'])->name("posts.store"); 

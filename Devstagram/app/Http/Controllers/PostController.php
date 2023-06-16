@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -16,11 +17,10 @@ class PostController extends Controller
 
     //Para mostrar el muro de perfil
     public function index(){
-        //dd('Estamos en el muro del usuario');
-        //Aplicamos un helper para revisar que el usuario esta autenticado
+        //Aplicamos un helper para revisar que el usuario esta autenciado
         //dd(auth()->user());
-        //Retornamos a la vista "dashboard"
-        return view('dashboard');
+        $servicios = DB::table('posts')->where('user_id',auth()->user()->id)->get();
+        return view('dashboard')->with('servicios',$servicios);
     }
 
     //Crear metodo create para mostrar el formulario d publicacion

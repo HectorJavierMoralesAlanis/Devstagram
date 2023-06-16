@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('descripcion');
             $table->string('imagen');
-            //Asociación del post al usuario: Relación user - post
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            //OnDelete cascade significa que si un usuario es eliminado, se eliminan sus posts de publicaciones
             $table->timestamps();
         });
     }
