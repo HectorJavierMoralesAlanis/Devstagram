@@ -51,11 +51,12 @@ Route::get('/logout',[LogoutController::class,'store'])->name('logout');
 Route::get('/services',[RegisterService::class,'index'])->name("registerS");
 Route::post('/services',[RegisterService::class,'store'])->name("serviceR");
 
+Route::get('/{user:username}',[PostController::class,'index'])->name('post.index');
 //Rutaa para el formulario de post de publicacion
-Route::get('/post/create',[PostController::class,'create'])->name('post.create');
+Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
 
 //Ruta para cargar Imagen
-Route::post('/imagenes',[ImagenController::class,'store'])->name('images.store');
+Route::post('/imagenes',[ImagenController::class,'store'])->name('imagenes.store');
 
 //Ruta para hacer el post de la imagen
-Route::get('/postIm',[PostImagenController::class,'index'])->name("postIm");
+Route::post('/posts',[PostController::class,'store'])->name("post.store"); 

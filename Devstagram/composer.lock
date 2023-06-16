@@ -29,6 +29,7 @@
                 "vimeo/psalm": "5.0.0"
             },
             "type": "library",
+            
             "autoload": {
                 "psr-4": {
                     "Brick\\Math\\": "src/"

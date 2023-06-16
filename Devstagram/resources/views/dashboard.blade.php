@@ -30,8 +30,8 @@
                 </div>
         </div>
     </div>
-    <!--
-    <a class="font-bold text-green-600 text-sm right" href="{{route('registerS')}}">Ingresar nuevo servicio</a>
+    
+    <!--<a class="font-bold text-green-600 text-sm right" href="{{route('registerS')}}">Ingresar nuevo servicio</a>
     <div class="container flex justify-center">
         <table class="border-separate  border-spacing-2 border border-white bg-[#44403c] text-white">
             <br>
@@ -47,17 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($servicios as $servicio)
-                <tr>
-                    <td>{{ $servicio->codigo }}</td>
-                    <td>{{ $servicio->nombre }}</td>
-                    <td>{{ $servicio->descripcion_Corta }}</td>
-                    <td>{{ $servicio->descripcion_Larga }}</td>
-                    <td>{{ $servicio->precio_Servicio }}</td>
-                    <td>{{ $servicio->fecha_Ingreso }}</td>
-                    <td>{{ $servicio->caracteristica_Servicio }}</td>
-                </tr>
-                @endforeach
+                
             </tbody>
         </table>
     </div>-->
