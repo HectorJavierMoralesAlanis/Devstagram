@@ -18,7 +18,7 @@ class ImagenController extends Controller
         //Utilizaoms intervetion Image para cargarse al server
         $imagenServidor = Image::make($imagen);
         //Agregamos efectos a la imagen
-        $imagenServidor->fit(1000,1000);
+        $imagenServidor->fit(1000,1000); 
         //Movemos la imagen de memoria(contenedor Dropzone) a una ubicacion fisica del server
         $imagenPath = public_path('uploads') . "/".$nombreImagen;
         $imagenServidor->save($imagenPath);
