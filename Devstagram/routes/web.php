@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterService;
-use App\Http\Controllers\ImagenController;
+use App\Http\Controllers\ImageNController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostImagenController;
@@ -51,12 +51,14 @@ Route::get('/logout',[LogoutController::class,'store'])->name('logout');
 Route::get('/services',[RegisterService::class,'index'])->name("registerS");
 Route::post('/services',[RegisterService::class,'store'])->name("serviceR");
 
-Route::get('/{user:username}',[PostController::class,'index'])->name('post.index');
+
+
+Route::get('/{user:username}',[PostController::class,'index'])->name('posts.index');
 //Rutaa para el formulario de post de publicacion
 Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
-
+//Route::post;
 //Ruta para cargar Imagen
-Route::post('/imagenes',[ImagenController::class,'store'])->name('imagenes.store');
+Route::post('/imagenes',[ImageNController::class,'store'])->name('imagenes.store');
 
 //Ruta para hacer el post de la imagen
 Route::post('/posts',[PostController::class,'store'])->name("posts.store"); 

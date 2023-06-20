@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('titulo')
-    Dashboard de Servicios
+    <!--Integramos user-->
+    Perfil: {{$user->username}}
 @endsection
 
 @section('contenido')
@@ -12,7 +13,7 @@
             </div>
                 <div class="md:w-8/12 lg:w-6/12 px-5">
                     <p class="text-gray-700 text-2xl">
-                        {{auth()->user()->username}}
+                        {{$user->username}}
                     </p>
                     <!-- Añadir mas contenido-->
                     <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
@@ -31,6 +32,25 @@
         </div>
     </div>
     
+    <!-- rECIBIR y mpstrar los Post de publicacion, se recibem desde PostController-->
+    <section class="container mx-auto mt-10">
+        <h2 class="text-4x1 text-center font-black my-10">Publicaciones</h2>
+        @if($posts->count())
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            @foreach($posts as $post)
+                <div>
+                    <a>
+                        <img src="{{assest('uploads'.'/'.$post->imagen)}}"
+                        alt="Imagen del Post {{$post->titulo}}">
+                    </a>
+                </div>
+            @endforeach
+        </div>
+        @else 
+            <p class="text-gray-600 uppercase text-sm text-center font bold">
+                No existen publicaciones
+            </p>
+    </section>
     <!--<a class="font-bold text-green-600 text-sm right" href="{{route('registerS')}}">Ingresar nuevo servicio</a>
     <div class="container flex justify-center">
         <table class="border-separate  border-spacing-2 border border-white bg-[#44403c] text-white">
